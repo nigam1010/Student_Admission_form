@@ -1,0 +1,149 @@
+.admin-wrapper {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(to right, #e0f7fa, #e1f5fe, #f1f8ff);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-glass-container {
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.admin-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0d47a1;
+  margin-bottom: 25px;
+  text-align: center;
+  text-shadow: 1px 1px #dce3ff;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.btn-download {
+  background: linear-gradient(to right, #42a5f5, #1e88e5);
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+}
+
+.btn-download:hover {
+  background: linear-gradient(to right, #1976d2, #1565c0);
+  box-shadow: 0 6px 12px rgba(21, 101, 192, 0.4);
+}
+
+
+/* Table Styles */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #0d47a1;
+  color: white;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  font-size: 14px;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f4f6f8;
+}
+
+tbody tr:hover {
+  background-color: #e3f2fd;
+  transition: background-color 0.2s;
+}
+
+.action-column {
+  white-space: nowrap;
+}
+
+.edit-icon,
+.delete-icon {
+  font-size: 18px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.edit-icon {
+  color: #43a047;
+}
+
+.edit-icon:hover {
+  transform: scale(1.2);
+  color: #2e7d32;
+}
+
+.delete-icon {
+  color: #e53935;
+}
+
+.delete-icon:hover {
+  transform: scale(1.2);
+  color: #b71c1c;
+}
+.logout-icon {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 24px;
+  color: #e53935;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.logout-icon:hover {
+  color: #b71c1c;
+  transform: scale(1.2);
+}
+.admin-glass-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+
+/* No data message */
+.no-data-message {
+  margin-top: 40px;
+  text-align: center;
+  color: #757575;
+  font-size: 18px;
+}

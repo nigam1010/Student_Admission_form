@@ -1,0 +1,51 @@
+<div class="admin-wrapper">
+  <div class="admin-card school-style">
+    <h3 class="admin-title">📘 Teacher Admin Login</h3>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">👤 Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          class="form-control" 
+          [(ngModel)]="admin.username" 
+          required
+          #username="ngModel"
+        />
+        <div *ngIf="username.invalid && username.touched" class="error-text">
+          Username is required.
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">🔐 Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          class="form-control" 
+          [(ngModel)]="admin.password" 
+          required
+          #password="ngModel"
+        />
+        <div *ngIf="password.invalid && password.touched" class="error-text">
+          Password is required.
+        </div>
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="btn login-btn" [disabled]="loginForm.invalid || loading">
+        ✏️ {{ loading ? 'Logging in...' : 'Login as Admin' }}
+      </button>
+    </form>
+
+    <!-- Status Message -->
+    <div *ngIf="loginMessage" class="status-message">
+      {{ loginMessage }}
+    </div>
+  </div>
+</div>

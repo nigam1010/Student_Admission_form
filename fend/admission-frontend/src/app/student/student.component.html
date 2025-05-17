@@ -1,0 +1,218 @@
+<div class="container">
+  <!-- Back Icon -->
+  <button class="back-icon" (click)="goBack()">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+
+  <div class="card">
+    <h2>Student Registration</h2>
+
+    <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          class="form-control"
+          [(ngModel)]="student.firstName"
+          name="firstName"
+          required
+          #firstName="ngModel"
+        />
+        <div *ngIf="firstName.invalid && firstName.touched" class="text-danger">
+          First name is required.
+        </div>
+      </div>
+
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          class="form-control"
+          [(ngModel)]="student.lastName"
+          name="lastName"
+          required
+          #lastName="ngModel"
+        />
+        <div *ngIf="lastName.invalid && lastName.touched" class="text-danger">
+          Last name is required.
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          [(ngModel)]="student.email"
+          name="email"
+          required
+          #email="ngModel"
+        />
+        <div *ngIf="email.invalid && email.touched" class="text-danger">
+          Email is required and must be valid.
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          type="text"
+          id="phone"
+          class="form-control"
+          [(ngModel)]="student.phone"
+          name="phone"
+          required
+          #phone="ngModel"
+        />
+        <div *ngIf="phone.invalid && phone.touched" class="text-danger">
+          Phone number is required.
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select
+          id="gender"
+          class="form-control"
+          [(ngModel)]="student.gender"
+          name="gender"
+          required
+          #gender="ngModel"
+        >
+          <option value="" disabled selected>Select gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <div *ngIf="gender.invalid && gender.touched" class="text-danger">
+          Gender is required.
+        </div>
+      </div>
+
+      <!-- DOB -->
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input
+          type="date"
+          id="dob"
+          class="form-control"
+          [(ngModel)]="student.dob"
+          name="dob"
+          required
+          #dob="ngModel"
+        />
+        <div *ngIf="dob.invalid && dob.touched" class="text-danger">
+          DOB is required.
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea
+          id="address"
+          class="form-control"
+          [(ngModel)]="student.address"
+          name="address"
+          required
+          #address="ngModel"
+        ></textarea>
+        <div *ngIf="address.invalid && address.touched" class="text-danger">
+          Address is required.
+        </div>
+      </div>
+
+      <!-- Course (Dropdown) -->
+      <div class="form-group">
+        <label for="course">Course</label>
+        <select
+          id="course"
+          class="form-control"
+          [(ngModel)]="student.course"
+          name="course"
+          required
+          #course="ngModel"
+        >
+          <option value="" disabled selected>Select course</option>
+          <option value="MCA in Artificial Intelligence and Machine Learning">
+            MCA in Artificial Intelligence and Machine Learning
+          </option>
+          <option value="MCA in Cybersecurity">MCA in Cybersecurity</option>
+          <option value="MCA in Data Science">MCA in Data Science</option>
+          <option value="MCA in Cloud Computing">MCA in Cloud Computing</option>
+          <option value="MCA in Mobile Application Development">
+            MCA in Mobile Application Development
+          </option>
+          <option value="MCA in Software Engineering">
+            MCA in Software Engineering
+          </option>
+          <option value="MCA in Blockchain Technology">
+            MCA in Blockchain Technology
+          </option>
+          <option value="MCA in Internet of Things (IoT)">
+            MCA in Internet of Things (IoT)
+          </option>
+          <option value="MCA in Web Development">MCA in Web Development</option>
+          <option value="MCA in Database Management Systems">
+            MCA in Database Management Systems
+          </option>
+        </select>
+        <div *ngIf="course.invalid && course.touched" class="text-danger">
+          Course is required.
+        </div>
+      </div>
+
+      <!-- Year -->
+      <div class="form-group">
+        <label for="year">Year</label>
+        <input
+          type="number"
+          id="year"
+          class="form-control"
+          [(ngModel)]="student.year"
+          name="year"
+          required
+          #year="ngModel"
+          min="1"
+          max="5"
+        />
+        <div *ngIf="year.invalid && year.touched" class="text-danger">
+          Year is required (1-5).
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="btn btn-primary mt-3"
+        [disabled]="studentForm.invalid || loading"
+      >
+        Submit
+      </button>
+    </form>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="loading" class="mt-2">
+      <p>Submitting...</p>
+    </div>
+
+    <!-- Registration Message -->
+    <div *ngIf="registrationMessage" class="alert alert-info mt-3">
+      {{ registrationMessage }}
+    </div>
+
+    <!-- Success Message -->
+    <div *ngIf="registrationSuccess" class="alert alert-success mt-3">
+      <h4>Registration Successful!</h4>
+      <p>If you have any queries, feel free to contact the admin.</p>
+    </div>
+  </div>
+</div>
